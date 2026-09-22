@@ -148,6 +148,62 @@ p { margin: 0 0 1em; }
 
 .section--dark .section-head .lede { color: var(--tan); }
 
+.faq-section {
+  background: var(--paper);
+}
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.2fr);
+  gap: 64px;
+  align-items: start;
+}
+
+.faq-layout .section-head {
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.faq-layout .section-head p.eyebrow {
+  justify-content: flex-start;
+}
+
+.faq-list {
+  border-top: 1px solid var(--line);
+}
+
+.faq-list details {
+  border-bottom: 1px solid var(--line);
+  padding: 20px 0;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  color: var(--teal-deep);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  padding-right: 28px;
+  position: relative;
+}
+
+.faq-list summary::after {
+  content: '+';
+  color: var(--rust);
+  font-family: var(--font-body);
+  font-size: 1.5rem;
+  position: absolute;
+  right: 0;
+  top: -5px;
+}
+
+.faq-list details[open] summary::after { content: '\2212'; }
+
+.faq-list details p {
+  color: var(--teal-mid);
+  margin: 12px 0 0;
+  max-width: 680px;
+}
+
 /* stitched divider, echoes the seam line on the workman's overalls */
 .stitch-divider {
   border: none;
@@ -1523,6 +1579,8 @@ p { margin: 0 0 1em; }
   .steps-track { display: none; }
   .about-grid { grid-template-columns: 1fr; gap: 36px; }
   .contact-grid { grid-template-columns: 1fr; }
+  .faq-layout { grid-template-columns: 1fr; gap: 32px; }
+  .faq-layout .section-head { margin-bottom: 0; }
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 32px; }
 
