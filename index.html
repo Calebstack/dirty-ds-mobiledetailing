@@ -22,6 +22,14 @@
   "email": "dirtydsmobilervdetailing@gmail.com",
   "image": "assets/images/logo.png",
   "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2791 Ashue Rd",
+    "addressLocality": "Wapato",
+    "addressRegion": "WA",
+    "postalCode": "98951",
+    "addressCountry": "US"
+  },
   "areaServed": [
     { "@type": "AdministrativeArea", "name": "Kittitas County, Washington" },
     { "@type": "AdministrativeArea", "name": "Lewis County, Washington" },
@@ -310,15 +318,17 @@
             </div>
             <div class="form-field">
               <label for="rvType">RV Type</label>
-              <select id="rvType" name="rvType">
-                <option value="">Select one</option>
-                <option>Class A Motorhome</option>
-                <option>Class B Camper Van</option>
-                <option>Class C Motorhome</option>
-                <option>Travel Trailer</option>
-                <option>Fifth Wheel</option>
-                <option>Other</option>
-              </select>
+              <div class="select-control">
+                <select id="rvType" name="rvType">
+                  <option value="" disabled selected>Choose your RV type</option>
+                  <option>Class A Motorhome</option>
+                  <option>Class B Camper Van</option>
+                  <option>Class C Motorhome</option>
+                  <option>Travel Trailer</option>
+                  <option>Fifth Wheel</option>
+                  <option>Other</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -357,8 +367,13 @@
         </form>
 
         <div class="area-panel">
-          <h3>Where We Go</h3>
-          <p>Dirty D's provides mobile RV detailing throughout Kittitas, Lewis and Yakima Counties, Washington.</p>
+          <h3>Mobile Service &amp; Wapato Location</h3>
+          <p>Dirty D's comes to your driveway, storage lot or campground throughout Kittitas, Lewis and Yakima Counties. You can also bring your RV to our physical location in Wapato.</p>
+          <address class="location-address">
+            <strong>Dirty D's Mobile RV Detailing</strong><br>
+            2791 Ashue Rd<br>
+            Wapato, WA 98951
+          </address>
           <ul class="county-chips">
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s7-7.58 7-13A7 7 0 0 0 5 9c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Kittitas County, WA</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s7-7.58 7-13A7 7 0 0 0 5 9c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>Lewis County, WA</li>
@@ -367,8 +382,8 @@
 
           <div class="map-frame">
             <iframe
-              src="https://maps.google.com/maps?q=104%20N%201st%20St%2C%20Yakima%2C%20WA%2098901%2C%20USA&z=9&output=embed"
-              title="Dirty D's Mobile RV Detailing service area map"
+              src="https://maps.google.com/maps?q=2791%20Ashue%20Rd%2C%20Wapato%2C%20WA%2098951%2C%20USA&z=15&output=embed"
+              title="Dirty D's Mobile RV Detailing location at 2791 Ashue Road, Wapato, Washington"
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               allowfullscreen>
@@ -486,6 +501,12 @@
             <span style="display:inline-flex;align-items:center;gap:10px;color:rgba(246,241,228,0.82);font-size:0.92rem;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:#C97C5D;flex-shrink:0;"><path d="M12 22s7-7.58 7-13A7 7 0 0 0 5 9c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
               Serving Kittitas, Lewis &amp; Yakima Counties, WA
+            </span>
+          </li>
+          <li>
+            <span style="display:inline-flex;align-items:flex-start;gap:10px;color:rgba(246,241,228,0.82);font-size:0.92rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:#C97C5D;flex-shrink:0;margin-top:3px;"><path d="M12 22s7-7.58 7-13A7 7 0 0 0 5 9c0 5.42 7 13 7 13z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              2791 Ashue Rd, Wapato, WA 98951
             </span>
           </li>
         </ul>

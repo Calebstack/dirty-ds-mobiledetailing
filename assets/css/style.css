@@ -1166,6 +1166,17 @@ p { margin: 0 0 1em; }
 
 .county-chips svg { width: 14px; height: 14px; color: var(--rust); }
 
+.location-address {
+  color: var(--teal-deep);
+  font-style: normal;
+  line-height: 1.7;
+  margin: 20px 0 24px;
+}
+
+.location-address strong {
+  color: var(--rust-dark);
+}
+
 .map-frame {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -1307,6 +1318,44 @@ p { margin: 0 0 1em; }
   font-family: var(--font-body);
   font-size: 0.95rem;
   transition: border-color 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.select-control {
+  position: relative;
+}
+
+.select-control::after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid var(--rust-light);
+  border-bottom: 2px solid var(--rust-light);
+  pointer-events: none;
+  position: absolute;
+  right: 17px;
+  top: 50%;
+  transform: translateY(-65%) rotate(45deg);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.form-field select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 44px;
+}
+
+.form-field select option {
+  background: var(--teal-deep);
+  color: var(--cream);
+}
+
+.select-control:hover::after {
+  border-color: var(--cream);
+}
+
+.select-control:focus-within::after {
+  border-color: var(--cream);
+  transform: translateY(-35%) rotate(225deg);
 }
 
 .form-field input::placeholder,
