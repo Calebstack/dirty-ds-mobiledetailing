@@ -66,6 +66,12 @@ document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Send visitors to the confirmation page after FormSubmit accepts the form.
+  var formSubmitNext = document.getElementById('formSubmitNext');
+  if (formSubmitNext) {
+    formSubmitNext.value = new URL('success.html', window.location.href).href;
+  }
+
   // ---- Gallery lightbox ----
   var galleryGrid = document.getElementById('galleryGrid');
   var lightbox = document.getElementById('lightbox');

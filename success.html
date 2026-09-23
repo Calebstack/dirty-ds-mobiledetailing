@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1C302C">
+  <title>Request Submitted | Dirty D's Mobile RV Detailing</title>
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --forest: #1c302c;
+      --cream: #f5f0e7;
+      --orange: #e8783d;
+      --ink: #17221f;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: Inter, sans-serif;
+    }
+
+    main {
+      width: min(100%, 560px);
+      padding: 52px 42px;
+      text-align: center;
+      background: #fffdf9;
+      border-top: 6px solid var(--orange);
+      box-shadow: 0 24px 70px rgba(28, 48, 44, 0.14);
+      animation: rise 0.6s ease both;
+    }
+
+    .logo { width: 92px; height: 92px; object-fit: contain; margin-bottom: 22px; }
+    .check {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 24px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--forest);
+      border-radius: 50%;
+      font-size: 34px;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 0;
+      color: var(--forest);
+      font-family: 'Alfa Slab One', Georgia, serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+    p { margin: 18px auto 0; max-width: 420px; line-height: 1.7; }
+    .return-note { color: #65716d; font-size: 0.9rem; }
+    .home-link {
+      display: inline-block;
+      margin-top: 24px;
+      padding: 14px 22px;
+      color: #fff;
+      background: var(--orange);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .home-link:hover { background: var(--forest); }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      main { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <img class="logo" src="assets/images/logo.png" alt="Dirty D's Mobile RV Detailing logo">
+    <div class="check" aria-hidden="true">&#10003;</div>
+    <h1>Request Submitted!</h1>
+    <p>Thank you for reaching out to Dirty D's Mobile RV Detailing. Your request has been received, and we'll be in touch soon.</p>
+    <p class="return-note">Returning you to the main page in 3 seconds...</p>
+    <a class="home-link" href="index.html">Return to Home</a>
+  </main>
+  <script>
+    window.setTimeout(function () {
+      window.location.href = 'index.html';
+    }, 3000);
+  </script>
+</body>
+</html>
