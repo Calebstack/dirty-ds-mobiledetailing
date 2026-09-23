@@ -66,23 +66,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---- Booking form ----
-  var form = document.getElementById('bookingForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // NOTE: This form currently only confirms submission in the browser.
-      // Connect it to your email service, booking tool, or a backend
-      // endpoint (e.g. Formspree, Netlify Forms, EmailJS) to actually
-      // receive these requests.
-      var name = form.querySelector('#name').value || 'there';
-      alert('Thanks, ' + name + '! Your detail request has been noted. ' +
-            'We will call or email you shortly to confirm your appointment.');
-      form.reset();
-    });
-  }
-
   // ---- Gallery lightbox ----
   var galleryGrid = document.getElementById('galleryGrid');
   var lightbox = document.getElementById('lightbox');
