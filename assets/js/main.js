@@ -72,6 +72,83 @@ document.addEventListener('DOMContentLoaded', function () {
     formSubmitNext.value = new URL('success.html', window.location.href).href;
   }
 
+  // ---- Customer review carousel ----
+  var reviewCarousel = document.getElementById('reviewsCarousel');
+  var reviewTrack = document.getElementById('reviewsTrack');
+
+  if (reviewCarousel && reviewTrack) {
+    var reviewSlides = Array.prototype.slice.call(reviewTrack.querySelectorAll('.review-card'));
+    var activeReview = 0;
+    var physicalPosition = 1;
+    var pointerStartX = null;
+    var rotationTimer;
+    var lastReview = reviewSlides[reviewSlides.length - 1].cloneNode(true);
+    var firstReview = reviewSlides[0].cloneNode(true);
+
+    lastReview.setAttribute('aria-hidden', 'true');
+    lastReview.setAttribute('aria-label', 'Duplicate review');
+    firstReview.setAttribute('aria-hidden', 'true');
+    firstReview.setAttribute('aria-label', 'Duplicate review');
+    reviewTrack.insertBefore(lastReview, reviewSlides[0]);
+    reviewTrack.appendChild(firstReview);
+
+    function setReviewPosition(position, animate) {
+      physicalPosition = position;
+      reviewTrack.style.transition = animate ? '' : 'none';
+      reviewTrack.style.transform = 'translateX(-' + (physicalPosition * 100) + '%)';
+
+      reviewSlides.forEach(function (slide, slideIndex) {
+        slide.setAttribute('aria-hidden', slideIndex === activeReview ? 'false' : 'true');
+      });
+    }
+
+    function updateReview(index) {
+      activeReview = (index + reviewSlides.length) % reviewSlides.length;
+      var targetPosition = index < 0
+        ? 0
+        : index >= reviewSlides.length
+          ? reviewSlides.length + 1
+          : activeReview + 1;
+
+      setReviewPosition(targetPosition, true);
+    }
+
+    reviewTrack.addEventListener('transitionend', function (event) {
+      if (event.target !== reviewTrack || event.propertyName !== 'transform') return;
+
+      if (physicalPosition === 0 || physicalPosition === reviewSlides.length + 1) {
+        setReviewPosition(physicalPosition === 0 ? reviewSlides.length : 1, false);
+        window.requestAnimationFrame(function () {
+          reviewTrack.style.transition = '';
+        });
+      }
+    });
+
+    var reviewViewport = reviewCarousel.querySelector('.reviews-viewport');
+    reviewViewport.addEventListener('pointerdown', function (event) {
+      if (event.isPrimary === false) return;
+      pointerStartX = event.clientX;
+    });
+    reviewViewport.addEventListener('pointerup', function (event) {
+      if (pointerStartX === null) return;
+      var swipeDistance = event.clientX - pointerStartX;
+      pointerStartX = null;
+      if (Math.abs(swipeDistance) < 50) return;
+      updateReview(activeReview + (swipeDistance < 0 ? 1 : -1));
+    });
+    reviewViewport.addEventListener('pointercancel', function () {
+      pointerStartX = null;
+    });
+
+    setReviewPosition(1, false);
+    window.requestAnimationFrame(function () {
+      reviewTrack.style.transition = '';
+    });
+    rotationTimer = window.setInterval(function () {
+      updateReview(activeReview + 1);
+    }, 3000);
+  }
+
   // ---- Gallery lightbox ----
   var galleryGrid = document.getElementById('galleryGrid');
   var lightbox = document.getElementById('lightbox');
